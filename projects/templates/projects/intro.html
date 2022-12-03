@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Practice 2</h1>
+<h3>Team members</h3>
+<ul>
+    <li>ALireza Ahmadi Hadi</li>
+    <li>Mobina Mirzaie</li>
+    <li>Zahra asgharian</li>
+</ul>
+<hr>
+<h4>Question 1 : List of students witch there name starts with 'ali' </h4>
+<ul>
+    {% for student in Q1students %}
+    <li>{{student.name}}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h4>Question 2 : List of '22' years old students </h4>
+<ul>
+    {% for student in Q2students %}
+    <li>{{student.name}}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h4>Question 3 : List of contents Related to Course 'A1' </h4>
+<ul>
+    {% for content in contents %}
+    <li>{{content.des}}</li>
+    {% endfor %}
+</ul>
+<hr>
+<h4>Question 3 : List of students registered in Course 'A1' </h4>
+<ul>
+    {% for student in Q3students %}
+    <li>{{student.name}} --- {{student.id}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
