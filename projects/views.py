@@ -1,23 +1,13 @@
 from django.shortcuts import render
-from .models import Project, student, course, registration
 
+from .models import course, registration, student
 
-def projects(request):
-    projects = Project.objects.all()
-    context = {"projects": projects}
-    return render(request, 'projects/projects.html', context)
+# Create your views here.
 
-
-def project(request, pk):
-    projectObj = Project.objects.get(id=pk)
-    return render(request, 'projects/single-project.html', {"project": projectObj})
-
-
-def intro(request):
+def three(request):
     Q1students = student.objects.filter(name__startswith='ali')
     Q2students = student.objects.filter(age=22)
     contents = course.objects.get(name='A1').content.all()
-    # Q3students = []
     courceID = course.objects.get(name="A1").id
     Registration = registration.objects.filter(courseid=courceID)
     Q3students = []
@@ -28,4 +18,4 @@ def intro(request):
                'contents': contents,
                'Q3students': Q3students,
                }
-    return render(request, 'projects/intro.html', context)
+    return render(request, 'projects/Practice_3.html', context)
