@@ -8,31 +8,94 @@
     <li>Zahra asgharian</li>
 </ul>
 <hr>
+
+<!-- Question 1 -->
 <h4>Question 1 : List of students witch there name starts with 'ali' </h4>
-<ul>
-    {% for student in Q1students %}
-    <li>{{student.name}}</li>
-    {% endfor %}
-</ul>
+<div style="margin-left:30px ;">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Age</th>
+            <th></th>
+            <th>ID</th>
+        </tr>
+        {% for student in Q1students %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td></td>
+            <td>{{student.age}}</td>
+            <td></td>
+            <td>{{student.id}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 <hr>
+
+<!-- Question 2 -->
 <h4>Question 2 : List of '22' years old students </h4>
-<ul>
-    {% for student in Q2students %}
-    <li>{{student.name}}</li>
-    {% endfor %}
-</ul>
+<div style="margin-left:30px ;">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Age</th>
+            <th></th>
+            <th>ID</th>
+        </tr>
+        {% for student in Q2students %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td></td>
+            <td>{{student.age}}</td>
+            <td></td>
+            <td>{{student.id}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 <hr>
-<h4>Question 3 : List of contents Related to Course 'A1' </h4>
-<ul>
-    {% for content in contents %}
-    <li>{{content.des}}</li>
-    {% endfor %}
-</ul>
+
+<!-- Question 3 Part 1 -->
+<h4>Question 3.1 : List of contents Related to Course 'A1' </h4>
+<div style="margin-left:30px ;">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th></th>
+            <th>Description</th>
+        </tr>
+        {% for content in contents %}
+        <tr>
+            <td>{{content.id}}</td>
+            <td></td>
+            <td>{{content.des}}</td>
+            </td>
+            {% endfor %}
+    </table>
+</div>
 <hr>
-<h4>Question 3 : List of students registered in Course 'A1' </h4>
-<ul>
-    {% for student in Q3students %}
-    <li>{{student.name}} --- {{student.id}}</li>
-    {% endfor %}
-</ul>
+<!-- Question 3 Part 2 -->
+<h4>Question 3.2 : List of students registered in Course 'A1' </h4>
+<div style="margin-left:50px ;">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Age</th>
+            <th></th>
+            <th>ID</th>
+        </tr>
+        {% for student in Q3students %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td></td>
+            <td>{{student.age}}</td>
+            <td></td>
+            <td>{{student.id}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
