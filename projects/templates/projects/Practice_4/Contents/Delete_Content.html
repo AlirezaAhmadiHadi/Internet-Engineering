@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>{{title}} Content</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete the Content ?</p>
+    <button>
+        <a href="{% url 'allContents' %}">Go Back</a>
+    </button>
+    <input type="submit" value="Confirm" />
+</form>
+
+{% endblock %}

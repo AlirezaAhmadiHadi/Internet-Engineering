@@ -16,7 +16,13 @@ urlpatterns = [
     path('update-cource/<str:pk>', views.updateCource, name="updateCource"),
     path('delete-cource/<str:pk>', views.deleteCource, name="deleteCource"),
 
+    path('contents', views.allContents, name="allContents"),
+    path('create-content', views.createContent, name="createContent"),
+    path('update-content/<str:pk>', views.updateContent, name="updateContent"),
+    path('delete-content/<str:pk>', views.deleteContent, name="deleteContent"),
+
     path('submit-registration', views.submitRegistration, name="submitRegistration"),
+
 
 ]
 

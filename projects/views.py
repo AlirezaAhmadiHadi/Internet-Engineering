@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 
-from projects.forms import CourceForm, StudentForm, RegistrationForm
+from projects.forms import CourceForm, StudentForm, ContentForm, RegistrationForm
 
-from .models import course, registration, student
+from .models import content, course, registration, student
 
 
 def practices(request):
@@ -107,7 +107,7 @@ def createCource(request):
         'form': form,
         'title': 'Create'
     }
-    return render(request, 'projects/Practice_4/Cources/Delete_Cource.html', context)
+    return render(request, 'projects/Practice_4/Cources/Cource_form.html', context)
 
 
 def updateCource(request, pk):
@@ -158,3 +158,61 @@ def submitRegistration(request):
         'form': form,
     }
     return render(request, 'projects/Practice_4/Registrations/Registration_form.html', context)
+
+
+def allContents(request):
+    Contents = content.objects.all()
+    print(Contents)
+    context = {'Contents': Contents}
+    return render(request, 'projects/Practice_4/Contents/Contents.html', context)
+
+
+def createContent(request):
+    form = ContentForm()
+
+    if request.method == 'POST':
+        form = ContentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('allContents')
+
+    context = {
+        'form': form,
+        'title': 'Create'
+    }
+    return render(request, 'projects/Practice_4/Contents/Content_form.html', context)
+
+
+def updateContent(request, pk):
+    Content = content.objects.get(id=pk)
+
+    form = ContentForm(instance=Content)
+
+    if request.method == 'POST':
+        form = ContentForm(request.POST, instance=Content)
+        if form.is_valid():
+            form.save()
+            return redirect('allContents')
+
+    context = {
+        'form': form,
+        'title': 'Update',
+    }
+    return render(request, 'projects/Practice_4/Contents/Content_form.html', context)
+
+
+def deleteContent(request, pk):
+    Content = content.objects.get(id=pk)
+
+    form = ContentForm(instance=Content)
+
+    if request.method == 'POST':
+        Content.delete()
+        return redirect('allContents')
+
+    context = {
+        'form': form,
+        'content': Content,
+        'title': 'Delete',
+    }
+    return render(request, 'projects/Practice_4/Contents/Delete_Content.html', context)

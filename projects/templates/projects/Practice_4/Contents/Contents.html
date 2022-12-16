@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>All Contents</h1>
+<hr>
+<ul>
+    {% for content in Contents %}
+    <li>
+        {{content.des}}
+        <a href="{% url 'updateContent' content.id %}">Update</a>
+        <a href="{% url 'deleteContent' content.id %}">Delete</a>
+        {% endfor %}
+    </li>
+
+</ul>
+
+<button><a href="{% url 'practice_4' %}">Go Back</a></button>
+<button><a href="{% url 'createContent' %}">Create Content</a></button>
+
+{% endblock %}
