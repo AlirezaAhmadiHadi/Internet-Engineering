@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>Submit Registration</h1>
+
+<form action="" , method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>
+        <a href="{% url 'practice_4' %}">Go Back</a>
+    </button>
+    <input type="submit" />
+</form>
+
+{% endblock %}

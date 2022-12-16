@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>All Students</h1>
+<hr>
+<div style="margin-left:30px ;">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>S.T Number</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for student in Students %}
+        <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.sudentNumber}}</td>
+            <td><a href="{% url 'updateStudent' student.id %}">Update</a></td>
+            <td><a href="{% url 'deleteStudent' student.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <button><a href="{% url 'practice_4' %}">Go Back</a></button>
+    <button><a href="{% url 'createStudent' %}">Create student</a></button>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<h1>Practices</h1>
+<ul>
+    <li>
+        <h2><a href="{% url 'practice_3' %}">Practice 3</a></h2>
+    </li>
+    <li>
+        <h2><a href="{% url 'practice_4' %}">Practice 4</a></h2>
+    </li>
+</ul>
+
+{% endblock %}

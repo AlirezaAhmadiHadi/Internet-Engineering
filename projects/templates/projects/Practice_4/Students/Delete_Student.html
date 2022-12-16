@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>{{title}} Student</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{student.name}}"</p>
+
+    <button>
+        <a href="{% url 'allStudents' %}">Go Back</a>
+    </button>
+    <input type="submit" value="Confirm" />
+</form>
+
+{% endblock %}

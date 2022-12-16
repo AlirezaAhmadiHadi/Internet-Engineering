@@ -1,32 +1,17 @@
 {% extends 'main.html' %}
 {% block content %}
-<h1>Practice 3</h1>
-<h3>Team members</h3>
-<ul>
-    <li>ALireza Ahmadi Hadi</li>
-    <li>Mobina Mirzaie</li>
-    <li>Zahra asgharian</li>
-</ul>
-<hr>
-
 <!-- Question 1 -->
 <h4>Question 1 : List of students witch there name starts with 'ali' </h4>
 <div style="margin-left:30px ;">
     <table>
         <tr>
-            <th>Name</th>
             <th></th>
             <th>Age</th>
-            <th></th>
-            <th>ID</th>
         </tr>
         {% for student in Q1students %}
         <tr>
             <td>{{student.name}}</td>
-            <td></td>
             <td>{{student.age}}</td>
-            <td></td>
-            <td>{{student.id}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -38,19 +23,13 @@
 <div style="margin-left:30px ;">
     <table>
         <tr>
-            <th>Name</th>
             <th></th>
             <th>Age</th>
-            <th></th>
-            <th>ID</th>
         </tr>
         {% for student in Q2students %}
         <tr>
             <td>{{student.name}}</td>
-            <td></td>
             <td>{{student.age}}</td>
-            <td></td>
-            <td>{{student.id}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -59,41 +38,25 @@
 
 <!-- Question 3 Part 1 -->
 <h4>Question 3.1 : List of contents Related to Course 'A1' </h4>
-<div style="margin-left:30px ;">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th></th>
-            <th>Description</th>
-        </tr>
-        {% for content in contents %}
-        <tr>
-            <td>{{content.id}}</td>
-            <td></td>
-            <td>{{content.des}}</td>
-            </td>
-            {% endfor %}
-    </table>
-</div>
+<ul>
+    {% for content in contents %}
+    <li>{{content.des}}</li>
+    {% endfor %}
+</ul>
 <hr>
+
 <!-- Question 3 Part 2 -->
 <h4>Question 3.2 : List of students registered in Course 'A1' </h4>
 <div style="margin-left:50px ;">
     <table>
         <tr>
             <th>Name</th>
-            <th></th>
             <th>Age</th>
-            <th></th>
-            <th>ID</th>
         </tr>
         {% for student in Q3students %}
         <tr>
             <td>{{student.name}}</td>
-            <td></td>
             <td>{{student.age}}</td>
-            <td></td>
-            <td>{{student.id}}</td>
         </tr>
         {% endfor %}
     </table>
