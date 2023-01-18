@@ -16,7 +16,7 @@ class student(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
     name = models.CharField(max_length=50, blank=True)
     age = models.IntegerField(default=0, blank=True)
-    sudentNumber = models.IntegerField(default=0, blank=True)
+    studentNumber = models.IntegerField(default=0, blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -32,6 +32,6 @@ class content(models.Model):
 
 class registration(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
-    courseid = models.ForeignKey('course', on_delete=models.CASCADE)
-    studentid = models.ForeignKey('student', on_delete=models.CASCADE)
+    courseID = models.ForeignKey('course', on_delete=models.CASCADE)
+    studentID = models.ForeignKey('student', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)

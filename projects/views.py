@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from projects.forms import CourceForm, StudentForm, ContentForm, RegistrationForm
+from projects.forms import CourseForm, StudentForm, ContentForm, RegistrationForm
 
 from .models import content, course, registration, student
 
@@ -13,11 +13,11 @@ def practice_three(request):
     Q1students = student.objects.filter(name__startswith='ali')
     Q2students = student.objects.filter(age=22)
     contents = course.objects.get(name='A1').content.all()
-    courceID = course.objects.get(name='A1').id
-    Registration = registration.objects.filter(courseid=courceID)
+    courseID = course.objects.get(name='A1').id
+    Registration = registration.objects.filter(courseID=courseID)
     Q3students = []
     for i in Registration:
-        Q3students.append(i.studentid)
+        Q3students.append(i.studentID)
     context = {'Q1students': Q1students,
                'Q2students': Q2students,
                'contents': contents,
@@ -88,61 +88,61 @@ def deleteStudent(request, pk):
     return render(request, 'projects/Practice_4/Students/Delete_Student.html', context)
 
 
-def allCources(request):
-    Cources = course.objects.all()
-    context = {'Cources': Cources}
-    return render(request, 'projects/Practice_4/Cources/Cources.html', context)
+def allCourses(request):
+    Courses = course.objects.all()
+    context = {'Courses': Courses}
+    return render(request, 'projects/Practice_4/Courses/Courses.html', context)
 
 
-def createCource(request):
-    form = CourceForm()
+def createCourse(request):
+    form = CourseForm()
 
     if request.method == 'POST':
-        form = CourceForm(request.POST)
+        form = CourseForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('allCources')
+            return redirect('allCourses')
 
     context = {
         'form': form,
         'title': 'Create'
     }
-    return render(request, 'projects/Practice_4/Cources/Cource_form.html', context)
+    return render(request, 'projects/Practice_4/Courses/Course_form.html', context)
 
 
-def updateCource(request, pk):
-    Cource = course.objects.get(id=pk)
+def updateCourse(request, pk):
+    Course = course.objects.get(id=pk)
 
-    form = CourceForm(instance=Cource)
+    form = CourseForm(instance=Course)
 
     if request.method == 'POST':
-        form = CourceForm(request.POST, instance=Cource)
+        form = CourseForm(request.POST, instance=Course)
         if form.is_valid():
             form.save()
-            return redirect('allCources')
+            return redirect('allCourses')
 
     context = {
         'form': form,
         'title': 'Update',
     }
-    return render(request, 'projects/Practice_4/Cources/Cource_form.html', context)
+    return render(request, 'projects/Practice_4/Courses/Course_form.html', context)
 
 
-def deleteCource(request, pk):
-    Cource = course.objects.get(id=pk)
+def deleteCourse(request, pk):
+    Course = course.objects.get(id=pk)
 
-    form = CourceForm(instance=Cource)
+    form = CourseForm(instance=Course)
 
     if request.method == 'POST':
-        Cource.delete()
-        return redirect('allCources')
+        Course.delete()
+        return redirect('allCourses')
 
     context = {
         'form': form,
-        'cource': Cource,
+        'course': Course,
         'title': 'Delete',
     }
-    return render(request, 'projects/Practice_4/Cources/Delete_Cource.html', context)
+    return render(request, 'projects/Practice_4/Courses/Delete_Course.html', context)
 
 
 def submitRegistration(request):

@@ -8,7 +8,7 @@ class StudentForm(ModelForm):
         fields = '__all__'
 
 
-class CourceForm(ModelForm):
+class CourseForm(ModelForm):
     class Meta:
         model = course
         fields = '__all__'
