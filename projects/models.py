@@ -17,6 +17,7 @@ class student(models.Model):
     name = models.CharField(max_length=50, blank=True)
     age = models.IntegerField(default=0, blank=True)
     studentNumber = models.IntegerField(default=0, blank=True)
+    student_image = models.ImageField(null=True, blank=True, default="default.jpg")
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -11,12 +11,14 @@
             <th>S.T Number</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         {% for student in Students %}
         <tr>
             <td>{{student.name}}</td>
             <td>{{student.age}}</td>
             <td>{{student.studentNumber}}</td>
+            <td><img src="{{ student.student_image.url }}" style="height: 40px; width: 40px;"></td>
             <td><a href="{% url 'updateStudent' student.id %}">Update</a></td>
             <td><a href="{% url 'deleteStudent' student.id %}">Delete</a></td>
         </tr>
