@@ -3,8 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('practice-3/', views.practice_three, name="practice_3"),
-    path('practice-4/', views.practice_four, name="practice_4"),
 
     path('students', views.allStudents, name="allStudents"),
     path('create-student', views.createStudent, name="createStudent"),
@@ -22,7 +20,5 @@ urlpatterns = [
     path('delete-content/<str:pk>', views.deleteContent, name="deleteContent"),
 
     path('submit-registration', views.submitRegistration, name="submitRegistration"),
-
-
 ]
 
