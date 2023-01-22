@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+
 {% load static %}
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/logo.svg" type="image/x-icon" />
 
     <!-- Ion Icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -17,16 +19,17 @@
     <!-- Mumble UI -->
     <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
 
-    <!-- Dev Search UI -->
+    <!-- Theme UI -->
     <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
 
     <link rel="stylesheet" href="{% static 'styles/main.css' %}">
 
-    <title>Practice</title>
+    <title>Internet Engineering</title>
 </head>
 
 <body>
     {% include 'navbar.html' %}
+
     {% block content %}
 
     {% endblock content %}
