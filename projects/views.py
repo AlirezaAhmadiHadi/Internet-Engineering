@@ -5,8 +5,8 @@ from projects.forms import CourseForm, StudentForm, ContentForm, RegistrationFor
 from .models import content, course, registration, student
 
 
-def practices(request):
-    return render(request, 'projects/Practices.html')
+def home(request):
+    return render(request, 'projects/home.html')
 
 
 def practice_three(request):
@@ -27,8 +27,7 @@ def practice_three(request):
 
 
 def practice_four(request):
-    context = {}
-    return render(request, 'projects/Practice_4/Practice_4.html', context)
+    return render(request, 'projects/Practice_4/Practice_4.html')
 
 
 def allStudents(request):
