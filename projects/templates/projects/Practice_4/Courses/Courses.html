@@ -1,27 +1,54 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h1>All Courses</h1>
-<hr>
-<div style="margin-left:30px ;">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for course in Courses %}
-        <tr>
-            <td>{{course.name}}</td>
-            <td><a href="{% url 'updateCourse' course.id %}">Update</a></td>
-            <td><a href="{% url 'deleteCourse' course.id %}">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+<main>
+	<section class="hero-section text-center" style="height: 35vh;">
+		<div class="container container--narrow">
+			<div class="hero-section__box"">
+				<h2>All Courses</h2>
+			</div>
+			<div class=" hero-section__search">
+				<a href="{% url 'createCourse' %}" class="btn btn--sub btn--lg">Add Course</a>
+			</div>
+		</div>
+	</section>
 
-    <br>
-    <button><a href="{% url 'practice_4' %}">Go Back</a></button>
-    <button><a href="{% url 'createCourse' %}">Create Course</a></button>
-</div>
+	<section class="projectsList">
+		<div class="container">
+			<div class="grid grid--three">
+
+				{% for course in Courses %}
+				<div class="column">
+					<div class="card project">
+						<a href="#" class="project">
+							<img class="project__thumbnail" src="images/default-course.jpg" alt="project thumbnail" />
+							<div class="card__body">
+								<h3 class="project__title">{{course.name}}</h3>
+								<p class="project--rating">
+									<span style="font-weight: bold;">{{course.content.count}}</span> Contents
+								</p>
+								<div class="project__tags">
+									<a class="tag tag--pill tag--main manage--btn" href="{% url 'deleteCourse' course.id %}">
+										<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Delete
+									</a>
+									<a class="tag tag--pill tag--main manage--btn" href="{% url 'updateCourse' course.id %}">
+										<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Edit
+									</a>
+									<span class="tag tag--pill tag--main">
+										<small>Mohaghegh Ardabili University</small>
+									</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+
+
+</main>
 
 {% endblock %}
