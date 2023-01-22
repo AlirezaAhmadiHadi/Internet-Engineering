@@ -160,9 +160,8 @@ def submitRegistration(request):
 
 
 def allContents(request):
-    Contents = content.objects.all()
-    print(Contents)
-    context = {'Contents': Contents}
+    Courses = course.objects.all()
+    context = {'Courses': Courses}
     return render(request, 'projects/Practice_4/Contents/Contents.html', context)
 
 

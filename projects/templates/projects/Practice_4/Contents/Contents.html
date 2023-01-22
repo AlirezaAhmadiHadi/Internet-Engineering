@@ -1,20 +1,44 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h1>All Contents</h1>
-<hr>
-<ul>
-    {% for content in Contents %}
-    <li>
-        {{content.des}}
-        <a href="{% url 'updateContent' content.id %}">Update</a>
-        <a href="{% url 'deleteContent' content.id %}">Delete</a>
-        {% endfor %}
-    </li>
+<main>
+	<section class="hero-section text-center" style="height: 25vh;">
+		<div class="container container--narrow">
+			<div class="hero-section__box"">
+				<h2>All Contents</h2>
+			</div>
+			<div class="hero-section__search" >
+				<a href="{% url 'createContent' %}" class="btn btn--sub btn--lg">Add Content</a>
+			</div>
+		</div>
+	</section>
 
-</ul>
+	<div class=" container">
+		<div class="grid grid--three">
+			{% for course in Courses %}
+			<table class="settings__table content--table">
+				{% for content in course.content.all %}
+				<tr>
+					<td class="settings__tableInfo">
+						<a href="single-project.html">{{course.name}}</a>
+						<p>
+							{{content.des}}
+						</p>
+					</td>
+					<td class="settings__tableActions">
+						<a class="tag tag--pill tag--main settings__btn" href="{% url 'updateContent' content.id %}">
+							<ion-icon name="create-outline" class="ion-icon_edit-content"></ion-icon>Edit
+						</a>
+						<a class="tag tag--pill tag--main settings__btn" href="{% url 'deleteContent' content.id %}">
+							<ion-icon name="close-circle-outline" class="ion-icon_edit-content"></ion-icon>Delete
+						</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% endfor %}
+		</div>
+	</div>
+</main>
 
-<button><a href="{% url 'practice_4' %}">Go Back</a></button>
-<button><a href="{% url 'createContent' %}">Create Content</a></button>
-
-{% endblock %}
+{% endblock content %}

@@ -15,3 +15,11 @@
     font-size: 15px;
     margin-right: 3px;
 }
+
+.ion-icon_edit-content {
+    font-size: 15px;
+}
+
+.content--table {
+    display: flex;
+}
