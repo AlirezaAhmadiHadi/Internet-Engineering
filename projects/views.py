@@ -130,7 +130,7 @@ def submitRegistration(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('practice_4')
+            return redirect('allStudents')
 
     context = {
         'form': form,
