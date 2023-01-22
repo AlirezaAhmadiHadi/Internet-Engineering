@@ -1,33 +1,55 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h1>All Students</h1>
-<hr>
-<div style="margin-left:30px ;">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>S.T Number</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for student in Students %}
-        <tr>
-            <td>{{student.name}}</td>
-            <td>{{student.age}}</td>
-            <td>{{student.studentNumber}}</td>
-            <td><img src="{{ student.student_image.url }}" style="height: 40px; width: 40px;"></td>
-            <td><a href="{% url 'updateStudent' student.id %}">Update</a></td>
-            <td><a href="{% url 'deleteStudent' student.id %}">Delete</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+<main class="home">
+	<section class="hero-section text-center">
+		<div class="container container--narrow">
+			<div class="hero-section__box">
+				<h2>CONNECT WITH <span>Students</span></h2>
+				<h2>AROUND THE WORLD</h2>
+			</div>
 
-    <br>
-    <button><a href="{% url 'practice_4' %}">Go Back</a></button>
-    <button><a href="{% url 'createStudent' %}">Create student</a></button>
-</div>
+			<div class="hero-section__search">
+				<a href="{% url 'createStudent' %}" class="btn btn--sub btn--lg">Add Student</a>
+			</div>
+		</div>
+	</section>
 
+	<section class="devlist">
+		<div class="container">
+			<div class="grid grid--three">
+
+				{% for student in Students %}
+				<div class="column card">
+					<div class="dev">
+						<a href="#" class="card__body">
+							<div class="dev__profile">
+								<img class="avatar avatar--md" src="{{ student.student_image.url }}" alt="image" />
+								<div class="dev__meta">
+									<h3>{{student.name}}</h3>
+									<h5>Computer Engineering</h5>
+								</div>
+							</div>
+
+							<p class="dev__info">
+								Student Number : {{student.studentNumber}}<br>
+								Age : {{student.age}}
+							</p>
+							<div class="dev__skills">
+								<a class="tag tag--pill tag--main manage--btn" href="{% url 'deleteStudent' student.id %}">
+									<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Delete
+								</a>
+								<a class="tag tag--pill tag--main manage--btn" href="{% url 'updateStudent' student.id %}">
+									<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Edit
+								</a>
+							</div>
+						</a>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</section>
+</main>
 {% endblock %}
