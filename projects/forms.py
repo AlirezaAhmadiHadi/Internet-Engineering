@@ -49,4 +49,12 @@ class ContentForm(forms.ModelForm):
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = registration
-        fields = '__all__'
+        fields = ['courseID', 'studentID']
+
+    def __init__(self, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update(
+                {'class': 'input input--text', 'placeholder': 'Add text'})
+
