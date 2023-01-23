@@ -18,20 +18,7 @@ class StudentForm(forms.ModelForm):
 class CourseForm(forms.ModelForm):
     class Meta:
         model = course
-        fields = ['name']
-
-    def __init__(self, *args, **kwargs):
-        super(CourseForm, self).__init__(*args, **kwargs)
-
-        for name, field in self.fields.items():
-            field.widget.attrs.update(
-                {'class': 'input input--text', 'placeholder': 'Add text'})
-
-
-class ContentForm(forms.ModelForm):
-    class Meta:
-        model = content
-        fields = ['des', 'content']
+        fields = ['name', 'content']
 
     content = forms.ModelMultipleChoiceField(
         queryset=content.objects.all(),
@@ -39,17 +26,36 @@ class ContentForm(forms.ModelForm):
     )
 
     def __init__(self, *args, **kwargs):
+        super(CourseForm, self).__init__(*args, **kwargs)
+
+        self.fields['name'].widget.attrs.update(
+            {'class': 'input input--text', 'placeholder': 'course name'}
+        )
+        self.fields['content'].widget.attrs.update(
+            {'style': 'list-style: none;'}
+        )   
+
+
+class ContentForm(forms.ModelForm):
+    class Meta:
+        model = content
+        fields = ['des']
+
+    def __init__(self, *args, **kwargs):
         super(ContentForm, self).__init__(*args, **kwargs)
 
-        for name, field in self.fields.items():
-            field.widget.attrs.update(
-                {'class': 'input input--text', 'placeholder': 'Add text'})
-
+        self.fields['des'].widget.attrs.update(
+            {'class': 'input input--text', 'placeholder': 'description'}
+        )
 
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = registration
         fields = ['courseID', 'studentID']
+        labels = {
+            'courseID': 'Course',
+            'studentID': 'Student'
+        }
 
     def __init__(self, *args, **kwargs):
         super(RegistrationForm, self).__init__(*args, **kwargs)
@@ -57,4 +63,3 @@ class RegistrationForm(forms.ModelForm):
         for name, field in self.fields.items():
             field.widget.attrs.update(
                 {'class': 'input input--text', 'placeholder': 'Add text'})
-
