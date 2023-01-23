@@ -1,16 +1,23 @@
 {% extends 'main.html' %}
 {% block content %}
 
-<h1>{{title}} Student</h1>
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <div class="form-header">
+                <a class="backButton" href="{% url 'allStudents' %}">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
+                <h3 class="form-header--content">Delete Student</h3>
+            </div>
+            <br>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{student.name}}"</p>
-
-    <button>
-        <a href="{% url 'allStudents' %}">Go Back</a>
-    </button>
-    <input type="submit" value="Confirm" />
-</form>
-
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <p>Are your sure you want to delete Student "{{student.name}}" ?</p>
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Delete" />
+            </form>
+        </div>
+    </div>
+</main>
 {% endblock %}
