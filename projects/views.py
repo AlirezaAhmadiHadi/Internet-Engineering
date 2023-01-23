@@ -8,6 +8,9 @@ from .models import content, course, registration, student
 def home(request):
     return render(request, 'projects/home.html')
 
+# /////////////////////////////
+# ///       Students        ///
+# /////////////////////////////
 
 def allStudents(request):
     Students = student.objects.all()
@@ -65,6 +68,9 @@ def deleteStudent(request, pk):
     }
     return render(request, 'projects/Students/Delete_Student.html', context)
 
+# /////////////////////////////
+# ///       Courses         ///
+# /////////////////////////////
 
 def allCourses(request):
     Courses = course.objects.all()
@@ -122,21 +128,9 @@ def deleteCourse(request, pk):
     }
     return render(request, 'projects/Courses/Delete_Course.html', context)
 
-
-def submitRegistration(request):
-    form = RegistrationForm()
-
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('allStudents')
-
-    context = {
-        'form': form,
-    }
-    return render(request, 'projects/Registrations/Registration_form.html', context)
-
+# /////////////////////////////
+# ///       Contents        ///
+# /////////////////////////////
 
 def allContents(request):
     Courses = course.objects.all()
@@ -193,3 +187,21 @@ def deleteContent(request, pk):
         'title': 'Delete',
     }
     return render(request, 'projects/Contents/Delete_Content.html', context)
+
+# /////////////////////////////
+# ///     Registration      ///
+# /////////////////////////////
+
+def submitRegistration(request):
+    form = RegistrationForm()
+
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('allStudents')
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'projects/Registrations/Registration_form.html', context)

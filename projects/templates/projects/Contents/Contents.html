@@ -7,13 +7,13 @@
 			<div class="hero-section__box"">
 				<h2>All Contents</h2>
 			</div>
-			<div class="hero-section__search" >
+			<div class="hero-section__search">
 				<a href="{% url 'createContent' %}" class="btn btn--sub btn--lg">Add Content</a>
 			</div>
 		</div>
 	</section>
 
-	<div class=" container">
+	<div class="container">
 		<div class="grid grid--three">
 			{% for course in Courses %}
 			<table class="settings__table content--table">
