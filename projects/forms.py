@@ -31,7 +31,19 @@ class CourseForm(forms.ModelForm):
 class ContentForm(forms.ModelForm):
     class Meta:
         model = content
-        fields = '__all__'
+        fields = ['des', 'content']
+
+    content = forms.ModelMultipleChoiceField(
+        queryset=content.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    def __init__(self, *args, **kwargs):
+        super(ContentForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update(
+                {'class': 'input input--text', 'placeholder': 'Add text'})
 
 
 class RegistrationForm(forms.ModelForm):
