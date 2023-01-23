@@ -18,7 +18,14 @@ class StudentForm(forms.ModelForm):
 class CourseForm(forms.ModelForm):
     class Meta:
         model = course
-        fields = '__all__'
+        fields = ['name']
+
+    def __init__(self, *args, **kwargs):
+        super(CourseForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update(
+                {'class': 'input input--text', 'placeholder': 'Add text'})
 
 
 class ContentForm(forms.ModelForm):
