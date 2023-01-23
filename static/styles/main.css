@@ -24,3 +24,16 @@
 .content--table {
     display: flex;
 }
+
+.form-header {
+    display: flex;
+    align-items: center;
+}
+
+.form-header--content {
+    margin-left: 5px;
+}
+
+.form__field ul {
+    list-style: none;
+}

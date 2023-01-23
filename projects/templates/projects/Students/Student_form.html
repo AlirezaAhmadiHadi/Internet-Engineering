@@ -4,7 +4,12 @@
 <main class="formPage my-xl">
     <div class="content-box">
         <div class="formWrapper">
-            <a class="backButton" href="{% url 'allStudents' %}"><ion-icon name="chevron-back-outline"></ion-icon></a>
+            <div class="form-header">
+                <a class="backButton" href="{% url 'allStudents' %}">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </a>
+                <h3 class="form-header--content">Add Student</h3>
+            </div>
             <br>
 
             <form class="form" method="POST" enctype="multipart/form-data">
