@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from users.models import Profile
 
 # Create your models here.
 
@@ -32,7 +33,11 @@ class content(models.Model):
         return self.des
 
 class registration(models.Model):
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.SET_NULL)
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
     courseID = models.ForeignKey('course', on_delete=models.CASCADE)
     studentID = models.ForeignKey('student', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.studentID.name} to {self.courseID.name}"
