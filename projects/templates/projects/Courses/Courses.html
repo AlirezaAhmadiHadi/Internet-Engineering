@@ -21,7 +21,7 @@
 				<div class="column">
 					<div class="card project">
 						<a href="#" class="project">
-							<img class="project__thumbnail" src="images/default-course.jpg" alt="project thumbnail" />
+							<img class="project__thumbnail" src="{{ course.course_image.url }}" alt="project thumbnail" />
 							<div class="card__body">
 								<h3 class="project__title">{{course.name}}</h3>
 								<p class="project--rating">
@@ -29,7 +29,7 @@
 								</p>
 								<div class="project__tags">
 									<a class="tag tag--pill tag--main manage--btn" href="{% url 'deleteCourse' course.id %}">
-										<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Delete
+										<ion-icon name="close-circle-outline" class="ion-icon_edit"></ion-icon>Delete
 									</a>
 									<a class="tag tag--pill tag--main manage--btn" href="{% url 'updateCourse' course.id %}">
 										<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Edit
