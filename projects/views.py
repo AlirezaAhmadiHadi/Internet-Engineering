@@ -17,6 +17,14 @@ def allStudents(request):
     context = {'Students': Students}
     return render(request, 'projects/Students/Students.html', context)
 
+def studentProfile(request, pk):
+    Student = student.objects.get(id=pk)
+    Courses = []
+    for register in registration.objects.filter(studentID=pk):
+        Courses.append(register.courseID)
+    context = {"Student": Student,
+               'Courses': Courses}
+    return render(request, "projects/Students/Student-profile.html", context)
 
 def createStudent(request):
     form = StudentForm()
