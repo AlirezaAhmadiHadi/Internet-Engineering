@@ -8,6 +8,7 @@ class course(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
     name = models.CharField(max_length=50, blank=True)
     content = models.ManyToManyField('content', blank=True)
+    course_image = models.ImageField(null=True, blank=True, default="default-course.jpg")
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
