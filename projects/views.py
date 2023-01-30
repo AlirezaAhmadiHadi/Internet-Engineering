@@ -37,7 +37,7 @@ def createStudent(request):
 
     context = {
         'form': form,
-        'title': 'Create',
+        'title': 'Add',
     }
     return render(request, 'projects/Students/Student_form.html', context)
 
@@ -85,6 +85,16 @@ def allCourses(request):
     context = {'Courses': Courses}
     return render(request, 'projects/Courses/Courses.html', context)
 
+def courseProfile(request, pk):
+    Course = course.objects.get(id=pk)
+    Students = []
+    for register in registration.objects.filter(courseID=pk):
+        Students.append(register.studentID)
+    Contents = Course.content.all()
+    context = {"Course": Course,
+               'Students': Students,
+               'Contents': Contents}
+    return render(request, "projects/Courses/Course-profile.html", context)
 
 def createCourse(request):
     form = CourseForm()
@@ -97,7 +107,7 @@ def createCourse(request):
 
     context = {
         'form': form,
-        'title': 'Create'
+        'title': 'Add'
     }
     return render(request, 'projects/Courses/Course_form.html', context)
 
@@ -157,7 +167,7 @@ def createContent(request):
 
     context = {
         'form': form,
-        'title': 'Create'
+        'title': 'Add'
     }
     return render(request, 'projects/Contents/Content_form.html', context)
 

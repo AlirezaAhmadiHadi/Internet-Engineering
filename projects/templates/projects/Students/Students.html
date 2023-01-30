@@ -36,13 +36,16 @@
 								Age : {{student.age}}
 							</p>
 							<div class="dev__skills">
-								<a class="tag tag--pill tag--main manage--btn" href="{% url 'deleteStudent' student.id %}">
+								<a class="tag tag--pill tag--main manage--btn"
+									href="{% url 'deleteStudent' student.id %}">
 									<ion-icon name="close-circle-outline" class="ion-icon_edit"></ion-icon>Delete
 								</a>
-								<a class="tag tag--pill tag--main manage--btn" href="{% url 'updateStudent' student.id %}">
+								<a class="tag tag--pill tag--main manage--btn"
+									href="{% url 'updateStudent' student.id %}">
 									<ion-icon name="create-outline" class="ion-icon_edit"></ion-icon>Edit
 								</a>
 							</div>
+
 						</a>
 					</div>
 				</div>

@@ -28,7 +28,7 @@
 						{% for course in Courses %}
 						<div class="column">
 							<div class="card project">
-								<a href="#" class="project">
+								<a href="{% url 'course-profile' course.id %}" class="project">
 									<img class="project__thumbnail" src="{{ course.course_image.url }}"
 										alt="project thumbnail" />
 									<div class="card__body">
